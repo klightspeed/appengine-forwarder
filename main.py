@@ -13,7 +13,7 @@ class Redirector(webapp2.RequestHandler):
   def get(self):
     domain = self.request.host
     urlpath = self.request.path
-    domainredirect = DomainRedirection.query(DomainRedirection.domainname = domain).get()
+    domainredirect = DomainRedirection.query(DomainRedirection.domainname == domain).get()
 
     if domainredirect is not None:
       if domainredirect.keeppath:
